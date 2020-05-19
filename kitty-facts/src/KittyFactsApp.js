@@ -13,4 +13,12 @@ class KittyFactsApp extends Component {
     }
 }
 
+const generateNewFactButton = () => {
+    return ''
+}
+
+const saveFactButton = () => {
+    return ''
+}
+
 export default KittyFactsApp
