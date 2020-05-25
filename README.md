@@ -9,8 +9,9 @@ Make sure you have [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs
 ### Installation
 1. `$ git clone https://github.com/zandrainilsson/kitty-facts.git`
 2. `$ cd kitty-facts`
-3. `$ npm start`
-4.  All set! The Kitty Facts web application should now be running on [localhost:3000](http://localhost:3000).
+3. `$ npm install`
+4. `$ npm start`
+5.  All set! The Kitty Facts web application should now be running on [localhost:3000](http://localhost:3000).
 
 ### Choice of Technology
 
