@@ -4,7 +4,7 @@ Kitty Facts emerged from a project created at [Malmö University](https://mau.se
 [Alex Wohlbruck](https://github.com/alexwohlbruck)’s API [cat-facts](https://alexwohlbruck.github.io/cat-facts/) and [TheCatAPI](https://docs.thecatapi.com/) by [Aden Forshaw](https://github.com/AdenForshaw), are being used in the project to fetch both random facts about cats and images of cats which can be saved in a list by the user’s liking. 
 
 ### Collaboration within the project
-Predominantly the [VS Code](https://code.visualstudio.com/) extension [Live Share](https://visualstudio.microsoft.com/services/live-share/) has been used throughout the project when writing the code. Which means that even though all group members have contributed with coding, all changes were made onto a local file of only one developer. Therefore the repository contributions are misleading.
+When writing the code, the [VS Code](https://code.visualstudio.com/) extension [Live Share](https://visualstudio.microsoft.com/services/live-share/) has predominantly been used throughout the project. Which means that even though all group members have contributed with coding, all changes were made onto a local file of only one developer. Therefore the repository contributions are misleading.
 
 ## Requirements
 Make sure you have [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/get-npm) installed.
