@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+/**
+ * Funktion som returerar meny'n och dess alternativ.
+ */
 export default () => {
     return(
         <nav>

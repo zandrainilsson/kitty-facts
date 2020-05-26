@@ -1,6 +1,9 @@
 import React from 'react';
 import cat from "./cat.png";
 
+/**
+ * Funktion som returnerar html-elementet <header>
+ */
 export default () => {
     return(
         <header>

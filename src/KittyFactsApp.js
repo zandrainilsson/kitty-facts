@@ -5,15 +5,20 @@ import Nav from './Nav.js';
 import KittyHome from './KittyHome.js';
 import MBKF from './Mbkf.js';
 
-
-function KittyFactsApp() {                                                                                  
+/**
+ * Funtionen som kör hela applikationen.
+ */
+function KittyFactsApp() {         
+    /** Hook där den nuvarande datan från API'erna sparas */                                                                         
     const [catInfo, setCatInfo] = useState({
         url: "",
         text: "",
     })
 
+    /** Hook där all den data användaren valt att spara, sparas */                                                                         
     const [allSavedFacts, setAllSavedFacts] = useState([])
 
+    /** Funktion som anropar API'erna samt sätter hooken 'catInfo' till svaret från anropen med 'setCatInfo' */
     async function getCatData() {
         let catImgResult = await fetch('https://api.thecatapi.com/v1/images/search');
         let catImg = await catImgResult.json();
@@ -23,16 +28,13 @@ function KittyFactsApp() {
         let catText = await catTextResult.json();
         catText = catText.text;
 
-        saveData(catImg, catText);    
-    }
-
-    const saveData = (img, text) => {
         setCatInfo({
-            url: img,
-            text: text,
+            url: catImg,
+            text: catText,
         })
     }
 
+    /** Sparar till localStorage */
     const saveToLocalStorage = (data) => {
         let getFacts = JSON.parse(localStorage.getItem('mybestfacts'))
 
@@ -47,6 +49,7 @@ function KittyFactsApp() {
         }
     }
 
+    /** Tar bort data från localStorage samt uppdaterar hooken 'allSavedFacts' med 'setAllSavedFacts' */
     const deleteFact = (index) => {
         let facts = localStorage.getItem('mybestfacts');
         let parsedFacts = JSON.parse(facts);
