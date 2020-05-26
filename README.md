@@ -27,6 +27,9 @@ Lastly, since the application uses API-calls, the results of them can be present
 
 ### Sources
 [1] [https://medium.com/techmagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d](https://medium.com/techmagic/reactjs-vs-angular5-vs-vue-js-what-to-choose-in-2018-b91e028fa91d)
+
 [2] [https://hackr.io/blog/best-javascript-frameworks](https://hackr.io/blog/best-javascript-frameworks) 
+
 [3] [https://www.britwise.com/blog/reactjs-vs-vuejs-2019](https://www.britwise.com/blog/reactjs-vs-vuejs-2019)
+
 [4] [https://www.codecademy.com/articles/react-virtual-dom](https://www.codecademy.com/articles/react-virtual-dom)
