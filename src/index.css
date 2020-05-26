@@ -60,3 +60,13 @@ nav > ul {
   box-shadow: 0 4px 2px -2px rgb(218, 218, 218);
   padding: 5px;
 }
+
+.catcards {
+  margin: auto;
+  width: 50%;
+
+}
+
+.catcards > img {
+  
+}

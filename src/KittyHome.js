@@ -6,10 +6,10 @@ export default (props) => {
 
     return(
         <React.Fragment>
-            <img src={catImg.url} alt="this is a cat"/>
-            <p>{catText.text}</p>
-            <GenerateNewFactButton newData={props.newData}/>
-            <SaveFactButton />
+            <img src={catImg} alt="this is a cat"/>
+            <p>{catText}</p>
+            <GenerateNewFactButton newData={props.newData} />
+            <SaveFactButton saveFact={props.saveFact} img={catImg} text={catText}/>
         </React.Fragment>
     )
 }
@@ -20,8 +20,13 @@ const GenerateNewFactButton = (props) => {
     )
 }
 
-const SaveFactButton = () => {
+const SaveFactButton = (props) => {
+    let wholeFact = {
+        image: props.img,
+        text: props.text,   
+    }
+
     return (
-        <button>Save Kitty Fact</button>
+        <button onClick={() => props.saveFact(wholeFact)}>Save Kitty Fact</button>
     )
 }

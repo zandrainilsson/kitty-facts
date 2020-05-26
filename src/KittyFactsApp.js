@@ -6,50 +6,61 @@ import KittyHome from './KittyHome.js';
 import MBKF from './Mbkf.js';
 
 
-function KittyFactsApp() {
-    const [catText, setCatText] = useState({
+function KittyFactsApp() {                                                                                  
+    const [catInfo, setCatInfo] = useState({
+        url: "",
         text: "",
     })
 
-    const [catImg, setCatImg] = useState({
-        url: "",
-    })
+    const [allSavedFacts, setAllSavedFacts] = useState([])
 
-    const catTextAPI = () => {
-        const url = 'https://cat-fact.herokuapp.com/facts/random';
+    async function getCatData() {
+        let catImgResult = await fetch('https://api.thecatapi.com/v1/images/search');
+        let catImg = await catImgResult.json();
+        catImg = catImg[0].url;
 
-        fetch(url)
-        .then(result => result.json())
-        .then(result => {
+        let catTextResult = await fetch('https://cat-fact.herokuapp.com/facts/random');
+        let catText = await catTextResult.json();
+        catText = catText.text;
 
-            setCatText({
-                text: result.text
-            })
+        saveData(catImg, catText);    
+    }
+
+    const saveData = (img, text) => {
+        setCatInfo({
+            url: img,
+            text: text,
         })
     }
 
-    const catImgAPI = () => {
-        const url = 'https://api.thecatapi.com/v1/images/search'
+    const saveToLocalStorage = (data) => {
+        let getFacts = JSON.parse(localStorage.getItem('mybestfacts'))
 
-        fetch(url)
-            .then(result => result.json())
-            .then(result => {
-
-                setCatImg({
-                    url: result[0].url
-                })
-            })
+        if (getFacts !== null) {
+            let facts = [...getFacts, data]
+            localStorage.setItem('mybestfacts', JSON.stringify(facts))
+            setAllSavedFacts(facts)
+        } else {
+            let facts = [data]
+            localStorage.setItem('mybestfacts', JSON.stringify(facts))
+            setAllSavedFacts(facts)
+        }
     }
 
-    function getData() {
-        catTextAPI();
-        catImgAPI();
+    const deleteFact = (index) => {
+        let facts = localStorage.getItem('mybestfacts');
+        let parsedFacts = JSON.parse(facts);
+        parsedFacts.splice(index, 1)
+
+        localStorage.setItem('mybestfacts', JSON.stringify(parsedFacts));
+        setAllSavedFacts(parsedFacts);
     }
 
     useEffect(() => {
-        getData();  
+        getCatData();
+        let allSavedFacts = JSON.parse(localStorage.getItem('mybestfacts'));
+        setAllSavedFacts(allSavedFacts);
     }, [])
-
 
     return (
         <div id="container">
@@ -58,16 +69,15 @@ function KittyFactsApp() {
                     <Nav />
                     <Switch>
                         <Route path="/" exact >
-                            <KittyHome kittyText={catText} kittyImg={catImg} newData={getData}/>
+                            <KittyHome kittyText={catInfo.text} kittyImg={catInfo.url} newData={getCatData} saveFact={saveToLocalStorage}/>
                         </Route>
                         <Route path="/my-best-kitty-facts">
-                            <MBKF />
+                            <MBKF delFact={deleteFact} allFacts={allSavedFacts}/>
                         </Route>
                     </Switch>
             </Router>
         </div>
     )
 }
-
 
 export default KittyFactsApp;
