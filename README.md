@@ -1,19 +1,22 @@
-## Kitty Facts
+# Kitty Facts
 Kitty Facts emerged from a project created at [Malmö University](https://mau.se/) as part of the course [Cross-platform Applications with Web Technologies](https://edu.mah.se/en/Course/DA355A), and was created by [Birger Norrman](https://github.com/BirgerNorrman), [Diana Klaar](https://github.com/dianaklaar), and [Zandra Nilsson](https://github.com/zandrainilsson). 
 
 [Alex Wohlbruck](https://github.com/alexwohlbruck)’s API [cat-facts](https://alexwohlbruck.github.io/cat-facts/) and [TheCatAPI](https://docs.thecatapi.com/) by [Aden Forshaw](https://github.com/AdenForshaw), are being used in the project to fetch both random facts about cats and images of cats which can be saved in a list by the user’s liking. 
 
-### Requirements
+### Collaboration within the project
+Predominantly the [VS Code](https://code.visualstudio.com/) extension [Live Share](https://visualstudio.microsoft.com/services/live-share/) has been used throughout the project when writing the code. Which means that even though all group members have contributed with coding, all changes were made onto a local file of only one developer. Therefore the repository contributions are misleading.
+
+## Requirements
 Make sure you have [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/get-npm) installed.
 
-### Installation
+## Installation
 1. `$ git clone https://github.com/zandrainilsson/kitty-facts.git`
 2. `$ cd kitty-facts`
 3. `$ npm install`
 4. `$ npm start`
 5.  All set! The Kitty Facts web application should now be running on [localhost:3000](http://localhost:3000).
 
-### Choice of Technology
+## Choice of Technology
 
 
-#### Sources
+### Sources
