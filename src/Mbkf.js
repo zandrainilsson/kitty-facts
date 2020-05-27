@@ -8,7 +8,7 @@ export default(props) => {
     return (
         <React.Fragment>
             <h1>My Best Kitty Facts</h1>
-            <FactCards allMyFacts={props.allFacts} deleteFact={props.delFact}/>
+            <FactCards allMyFacts={props.allFacts} deleteFact={props.delFact} deleteAllFacts={props.delAllFacts}/>
         </React.Fragment>
     )
 }
@@ -20,7 +20,7 @@ export default(props) => {
  */
 const FactCards = (props) => {
     if (props.allMyFacts === null || !props.allMyFacts.length ) {
-        return <p>Åh nej! Du verkar inte ha sparat någon fakta ännu...</p>
+        return <p>Oh no! It seems that you haven't saved any facts yet...</p>
     } else {
         const items = props.allMyFacts.map((item, index) => {
             return (
@@ -33,7 +33,10 @@ const FactCards = (props) => {
         })
     
         return (
-            <div id="best-cat-fact">{items}</div>
+            <div id="best-cat-fact">
+                {items}
+                <button onClick={() => props.deleteAllFacts()}>Delete all saved facts</button>
+            </div>
         )
     }
 }

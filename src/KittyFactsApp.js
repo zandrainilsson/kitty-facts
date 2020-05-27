@@ -59,6 +59,11 @@ function KittyFactsApp() {
         setAllSavedFacts(parsedFacts);
     }
 
+    const deleteAllFacts = () => {
+        setAllSavedFacts([]);
+        localStorage.clear();
+    }
+
     useEffect(() => {
         getCatData();
         let allSavedFacts = JSON.parse(localStorage.getItem('mybestfacts'));
@@ -71,11 +76,11 @@ function KittyFactsApp() {
                 <Header />
                     <Nav />
                     <Switch>
-                        <Route path="/" exact >
-                            <KittyHome kittyText={catInfo.text} kittyImg={catInfo.url} newData={getCatData} saveFact={saveToLocalStorage}/>
+                        <Route path="/" exact>
+                            <KittyHome kittyText={catInfo.text} kittyImg={catInfo.url} newData={getCatData} saveFact={saveToLocalStorage} allFacts={allSavedFacts}/>
                         </Route>
                         <Route path="/my-best-kitty-facts">
-                            <MBKF delFact={deleteFact} allFacts={allSavedFacts}/>
+                            <MBKF delFact={deleteFact} delAllFacts={deleteAllFacts} allFacts={allSavedFacts}/>
                         </Route>
                     </Switch>
             </Router>

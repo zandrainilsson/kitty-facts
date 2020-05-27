@@ -16,7 +16,7 @@ export default (props) => {
             <img src={catImg} alt="this is a cat"/>
             <p>{catText}</p>
             <GenerateNewFactButton newData={props.newData} />
-            <SaveFactButton saveFact={props.saveFact} img={catImg} text={catText}/>
+            <SaveFactButton saveFact={props.saveFact} img={catImg} text={catText} allMyFacts={props.allFacts} />
         </React.Fragment>
     )
 }
@@ -38,7 +38,21 @@ const SaveFactButton = (props) => {
         text: props.text,   
     }
 
-    return (
-        <button onClick={() => props.saveFact(wholeFact)}>Save Kitty Fact</button>
-    )
+    /** Kontrollerar om exakt samma fakta redan finns sparad */
+    const checkContentFacts = () => {
+        for (let i = 0; i < props.allMyFacts.length; i++) {
+            if (props.allMyFacts[i].image === props.img && props.allMyFacts[i].text === props.text){
+                return true
+            } 
+        }
+        return false
+    }
+
+    /** Returnerar olika om faktan redan blivit sparad eller inte */
+    if (checkContentFacts()) {
+        return <p>The fact have been saved!</p>
+
+    } else {
+        return <button onClick={() => props.saveFact(wholeFact)}>Save Kitty Fact</button>
+    }
 }
