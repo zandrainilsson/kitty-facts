@@ -64,9 +64,25 @@ nav > ul {
 .catcards {
   margin: auto;
   width: 50%;
-
+  padding: 4px;
 }
 
 .catcards > img {
   
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+
+}
+
+/* Tablet */
+@media screen and (max-width: 900px) {
+
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+
+
 }
