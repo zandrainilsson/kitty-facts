@@ -6,10 +6,7 @@ import React from 'react';
  */
 export default(props) => {
     return (
-        <React.Fragment>
-            <h1>My Best Kitty Facts</h1>
-            <FactCards allMyFacts={props.allFacts} deleteFact={props.delFact} deleteAllFacts={props.delAllFacts}/>
-        </React.Fragment>
+        <FactCards allMyFacts={props.allFacts} deleteFact={props.delFact} deleteAllFacts={props.delAllFacts}/>
     )
 }
 
@@ -27,7 +24,7 @@ const FactCards = (props) => {
                 <figure className="catcards" key={index}>
                     <img src={item.image} alt="this is a cat"/>
                     <figcaption>{item.text}</figcaption>
-                    <button onClick={() => props.deleteFact(index)}>Delete Fact</button>
+                    <button className="button" onClick={() => props.deleteFact(index)}>Delete Fact</button>
                 </figure>
             )
         })
@@ -37,7 +34,7 @@ const FactCards = (props) => {
                 <div id="best-cat-fact">
                     {items}
                 </div>
-                <button onClick={() => props.deleteAllFacts()}>Delete all saved facts</button>
+                <button id="delete-all" className="button" onClick={() => props.deleteAllFacts()}>Delete all saved facts</button>
             </React.Fragment>
         )
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 /**
  * Funktion som returerar meny'n och dess alternativ.
@@ -9,10 +9,10 @@ export default () => {
         <nav>
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <NavLink exact to="/" activeClassName="selectedNav">Home</NavLink>
                 </li>
                 <li>
-                    <Link to="/my-best-kitty-facts">My Best Kitty Facts</Link>
+                    <NavLink exact to="/my-best-kitty-facts" activeClassName="selectedNav">My Best Kitty Facts</NavLink>
                 </li>
             </ul>
         </nav>
