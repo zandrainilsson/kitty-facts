@@ -50,7 +50,7 @@ const SaveFactButton = (props) => {
 
     /** Returnerar olika om faktan redan blivit sparad eller inte */
     if (checkContentFacts()) {
-        return <p>The fact have been saved!</p>
+        return <p>This fact have been saved!</p>
 
     } else {
         return <button onClick={() => props.saveFact(wholeFact)}>Save Kitty Fact</button>
