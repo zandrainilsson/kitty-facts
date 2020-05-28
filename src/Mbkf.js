@@ -33,10 +33,12 @@ const FactCards = (props) => {
         })
     
         return (
-            <div id="best-cat-fact">
-                {items}
+            <React.Fragment>
+                <div id="best-cat-fact">
+                    {items}
+                </div>
                 <button onClick={() => props.deleteAllFacts()}>Delete all saved facts</button>
-            </div>
+            </React.Fragment>
         )
     }
 }
