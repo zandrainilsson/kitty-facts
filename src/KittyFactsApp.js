@@ -67,7 +67,11 @@ function KittyFactsApp() {
     useEffect(() => {
         getCatData();
         let allSavedFacts = JSON.parse(localStorage.getItem('mybestfacts'));
-        setAllSavedFacts(allSavedFacts);
+        if (allSavedFacts === null){
+            setAllSavedFacts([])
+        } else {
+            setAllSavedFacts(allSavedFacts);
+        }
     }, [])
 
     return (
